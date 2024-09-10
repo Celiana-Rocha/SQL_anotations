@@ -5,12 +5,13 @@
 
 -- selecione tudo de t2.product_category_name
 SELECT  
+        -- trazendo da tabela t2 os nomes da categoria
         t2.product_category_name,
-        -- somando o preços dos produtos
+        -- trazendo e somando o preços dos produtos
         sum(t1.price) AS receita,
         -- contando todos eles
         COUNT(*) as itens_vendidos,
-        -- contando todos os pedidos diferentes de order_id
+        -- trazendo e contando todos os pedidos diferentes de order_id
         COUNT(DISTINCT t1.order_id) as pedidos,
         -- contando e dividindo quantas unidades de vendas por pedido
         COUNT(*) / CAST( count(DISTINCT t1.order_id) as FLOAT) as avg_item_por_pedido
